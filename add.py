@@ -1,16 +1,21 @@
-# Simple addition and subtraction calculator
+import sys
 
-# Get two numbers from the user
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+# Check if enough arguments are provided
+if len(sys.argv) != 4:
+    print("Usage: python add.py <num1> <num2> <operation>")
+    sys.exit(1)
 
-# Choose the operation
-operation = input("Choose operation (+ for add, - for subtract): ")
+# Get numbers and operation from command-line arguments
+num1 = float(sys.argv[1])
+num2 = float(sys.argv[2])
+operation = sys.argv[3]
 
-# Perform the operation
+# Perform calculation based on the operation
 if operation == '+':
-    print(f"The result is: {num1 + num2}")
+    result = num1 + num2
+    print(f"The result of addition is: {result}")
 elif operation == '-':
-    print(f"The result is: {num1 - num2}")
+    result = num1 - num2
+    print(f"The result of subtraction is: {result}")
 else:
     print("Invalid operation!")
